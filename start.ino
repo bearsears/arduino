@@ -44,6 +44,7 @@ void setup()
 
 void loop()
 {
+  /* This is ultrasensor front and back.*/
   distance = getDistance(trigPinFront, echoPinFront);
   Serial.print("Front Distance: ");
   Serial.print(distance);
@@ -54,34 +55,22 @@ void loop()
   Serial.print(distance);
   Serial.println(" cm"); 
 
-  
-  
-  //stop for a moment
-  rightMotor(0);
-  leftMotor(0);
-  delay(150);
-  
-  //go forward
-  rightMotor(255);
-  leftMotor(255);
-  delay(forwardTime);
-  
-  //stop the motors
-  rightMotor(0);
-  leftMotor(0);
-  delay(300);
-  
-  //back up
-  rightMotor(-255);
-  leftMotor(-255);
-  delay(backupTime);
-  
-  //stop the motors
-  rightMotor(0);
-  leftMotor(0);
-  delay(200);
-  
-  
+  /* Joystick input to engine speed converter */
+  double left;
+  double right;
+  // put your main code here, to run repeatedly:
+  int x = analogRead(A0);
+  x -= 512;
+  int y = analogRead(A1);
+  y -= 512;
+  engine_speed((double) x, (double) y, &left, &right);
+  Serial.print("left engine:  ");
+  Serial.print(left);
+  Serial.print("    right engine:  ");
+  Serial.println(right);
+  leftMotor(left);
+  rightMotor(right);
+
 }
 
 /**************************/
@@ -151,4 +140,32 @@ void rightMotor(int motorSpeed)                       //function for driving the
 
 /******END***************************END*****************************************/
 
+void engine_speed(double x, double y, double* lp, double* rp) {
+  double left;
+  double right;
+  double r;
+  double t;
+  r = hypot(x, y);
+  t = atan2(y, x);
+  //Serial.println(r);
+  //Serial.println(t);
+  
+  t -= M_PI / 4;
+  left = r * cos(t);
+  right = r * sin(t);
+  left *= sqrt(2);
+  left /= 2;
+  right *= sqrt(2);
+  right /= 2;
+  //Serial.println(left);
+  //Serial.println(right);
+  //Division two for converting distance to engine speed,
+  //255 / 512
+  left = max(-255, min(left, 255)); 
+  right = max(-255, min(right, 255));
+  *lp = left;
+  *rp = right;
+    
+  return;
+}
 
