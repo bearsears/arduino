@@ -11,23 +11,20 @@ const int PWMB = 3;           //speed control pin on the motor driver for the le
 const int BIN2 = 2;           //control pin 2 on the motor driver for the left motor
 const int BIN1 = 4;           //control pin 1 on the motor driver for the left motor
 
+//Ultrasonic sensor.
 const int trigPinFront = 6; // Trigger Pin of Front Ultrasonic Sensor
 const int echoPinFront = 5; // Echo Pin of Front Ultrasonic Sensor
 const int trigPinBack= 10; // Trigger Pin Back Ultrasonic Sensor;
 const int echoPinBack = 9; // Echo pin Back Ultrasonic Sensor;
 
-int backupTime = 3000;
-int forwardTime = 3000;
+//Tilt sensor
+const int xtiltPin = 7;
+const int ytiltPin = 8;
+
 float distance = 0;
 
 void setup()
 {
-  pinMode(LED_BUILTIN, OUTPUT);
-  pinMode(trigPinFront, OUTPUT); // initialising pin 7 as output
-  pinMode(echoPinFront, INPUT); // initialising pin 6 as input
-  pinMode(trigPinBack, OUTPUT); // pin 10 as output
-  pinMode(echoPinFront, INPUT); // pin 9 as input
-
   //set the motor control pins as outputs
   pinMode(AIN1, OUTPUT);
   pinMode(AIN2, OUTPUT);
@@ -36,7 +33,20 @@ void setup()
   pinMode(BIN1, OUTPUT);
   pinMode(BIN2, OUTPUT);
   pinMode(PWMB, OUTPUT);
+
+  //set the ultrasonic sensor
+  pinMode(trigPinFront, OUTPUT); // initialising pin 6 as output
+  pinMode(echoPinFront, INPUT); // initialising pin 5 as input
+  pinMode(trigPinBack, OUTPUT); // pin 10 as output
+  pinMode(echoPinFront, INPUT); // pin 9 as input
+
+  //set the tilt sensor
+  pinMode(xtiltPin, INPUT); // initializing pin 7 as xtilt
+  digitalWrite(xtiltPin, HIGH);
+  pinMode(ytiltPin, INPUT); // initializing pin 8 as ytilt
+  digitalWrite(ytiltPin, HIGH);
   
+  //start serial
   Serial.begin(9600);
   Serial.print("to infinity and beyond!");
   
@@ -64,16 +74,27 @@ void loop()
   int y = analogRead(A1);
   y -= 512;
   engine_speed((double) x, (double) y, &left, &right);
+  /*
   Serial.print("left engine:  ");
   Serial.print(left);
   Serial.print("    right engine:  ");
   Serial.println(right);
+  */
   leftMotor(left);
   rightMotor(right);
+  check_tilt();
 
 }
 
 /**************************/
+void check_tilt() { 
+  if (digitalRead(xtiltPin) || digitalRead(ytiltPin)) {
+    Serial.println("This needs to get to a sensor");
+  } else {
+    Serial.print(".");
+  }
+  return;
+}
 
 float getDistance(int tp, int ep)
 {
