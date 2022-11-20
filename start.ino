@@ -2,14 +2,14 @@
 //
 
 //the right motor will be controlled by the motor A pins on the motor driver
-const int AIN1 = 12;           //control pin 1 on the motor driver for the right motor
-const int AIN2 = 13;            //control pin 2 on the motor driver for the right motor
-const int PWMA = 11;            //speed control pin on the motor driver for the right motor
+const int AIN1 = 12; //control pin 1 on the motor driver for the right motor
+const int AIN2 = 13; //control pin 2 on the motor driver for the right motor
+const int PWMA = 11; //speed control pin on the motor driver for the right motor
 
 //the left motor will be controlled by the motor B pins on the motor driver
-const int PWMB = 3;           //speed control pin on the motor driver for the left motor
-const int BIN2 = 2;           //control pin 2 on the motor driver for the left motor
-const int BIN1 = 4;           //control pin 1 on the motor driver for the left motor
+const int PWMB = 3; //speed control pin on the motor driver for the left motor
+const int BIN2 = 2; //control pin 2 on the motor driver for the left motor
+const int BIN1 = 4; //control pin 1 on the motor driver for the left motor
 
 //Ultrasonic sensor.
 const int trigPinFront = 6; // Trigger Pin of Front Ultrasonic Sensor

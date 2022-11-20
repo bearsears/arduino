@@ -4679,3 +4679,183 @@ Content-Length: 42
 Content-Length: 47
 
 {"jsonrpc":"2.0","method":"exit","params":null}
+
+
+
+
+
+
+Started logging.
+
+>>>
+Content-Length: 3082
+
+{"jsonrpc":"2.0","id":"1","method":"initialize","params":{"processId":9348,"clientInfo":{"name":"vscode","version":"1.53.2"},"rootPath":"C:\\Users\\sukji\\AppData\\Local\\Temp\\arduino-language-server1945140500\\sketch","rootUri":"file:///C:/Users/sukji/AppData/Local/Temp/arduino-language-server1945140500/sketch","initializationOptions":{},"capabilities":{"workspace":{"applyEdit":true,"workspaceEdit":{"documentChanges":true,"resourceOperations":["create","rename","delete"],"failureHandling":"textOnlyTransactional"},"didChangeConfiguration":{"dynamicRegistration":true},"didChangeWatchedFiles":{"dynamicRegistration":true},"symbol":{"dynamicRegistration":true,"symbolKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]}},"executeCommand":{"dynamicRegistration":true},"workspaceFolders":true,"configuration":true},"textDocument":{"synchronization":{"dynamicRegistration":true,"willSave":true,"willSaveWaitUntil":true,"didSave":true},"completion":{"dynamicRegistration":true,"completionItem":{"snippetSupport":true,"commitCharactersSupport":true,"documentationFormat":["markdown","plaintext"],"deprecatedSupport":true,"preselectSupport":true,"tagSupport":{"valueSet":[1]}},"completionItemKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]},"contextSupport":true},"hover":{"dynamicRegistration":true,"contentFormat":["markdown","plaintext"]},"signatureHelp":{"dynamicRegistration":true,"signatureInformation":{"documentationFormat":["markdown","plaintext"],"parameterInformation":{"labelOffsetSupport":true}},"contextSupport":true},"declaration":{"dynamicRegistration":true,"linkSupport":true},"definition":{"dynamicRegistration":true,"linkSupport":true},"typeDefinition":{"dynamicRegistration":true,"linkSupport":true},"implementation":{"dynamicRegistration":true,"linkSupport":true},"references":{"dynamicRegistration":true},"documentHighlight":{"dynamicRegistration":true},"documentSymbol":{"dynamicRegistration":true,"symbolKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]},"hierarchicalDocumentSymbolSupport":true},"codeAction":{"dynamicRegistration":true,"codeActionLiteralSupport":{"codeActionKind":{"valueSet":["","quickfix","refactor","refactor.extract","refactor.inline","refactor.rewrite","source","source.organizeImports"]}},"isPreferredSupport":true},"codeLens":{"dynamicRegistration":true},"documentLink":{"dynamicRegistration":true,"tooltipSupport":true},"colorProvider":{"dynamicRegistration":true},"formatting":{"dynamicRegistration":true},"rangeFormatting":{"dynamicRegistration":true},"onTypeFormatting":{"dynamicRegistration":true},"rename":{"dynamicRegistration":true,"prepareSupport":true},"publishDiagnostics":{"relatedInformation":true,"tagSupport":{"valueSet":[1,2]}},"foldingRange":{"dynamicRegistration":true,"rangeLimit":5000,"lineFoldingOnly":true},"selectionRange":{"dynamicRegistration":true}},"window":{"workDoneProgress":true}},"trace":"off","workspaceFolders":[{"uri":"file:///c%3A/Users/sukji/arduino_master/start","name":"start"}]}}
+<<<
+Content-Length: 1905
+
+{"id":"1","jsonrpc":"2.0","result":{"capabilities":{"astProvider":true,"callHierarchyProvider":true,"clangdInlayHintsProvider":true,"codeActionProvider":{"codeActionKinds":["quickfix","refactor","info"]},"compilationDatabase":{"automaticReload":true},"completionProvider":{"allCommitCharacters":[" ","\t","(",")","[","]","{","}","<",">",":",";",",","+","-","/","*","%","^","&","#","?",".","=","\"","'","|"],"resolveProvider":false,"triggerCharacters":[".","<",">",":","\"","/","*"]},"declarationProvider":true,"definitionProvider":true,"documentFormattingProvider":true,"documentHighlightProvider":true,"documentLinkProvider":{"resolveProvider":false},"documentOnTypeFormattingProvider":{"firstTriggerCharacter":"\n","moreTriggerCharacter":[]},"documentRangeFormattingProvider":true,"documentSymbolProvider":true,"executeCommandProvider":{"commands":["clangd.applyFix","clangd.applyTweak"]},"hoverProvider":true,"implementationProvider":true,"memoryUsageProvider":true,"referencesProvider":true,"renameProvider":{"prepareProvider":true},"selectionRangeProvider":true,"semanticTokensProvider":{"full":{"delta":true},"legend":{"tokenModifiers":["declaration","deprecated","deduced","readonly","static","abstract","virtual","dependentName","defaultLibrary","usedAsMutableReference","functionScope","classScope","fileScope","globalScope"],"tokenTypes":["variable","variable","parameter","function","method","function","property","variable","class","interface","enum","enumMember","type","type","unknown","namespace","typeParameter","concept","type","macro","comment"]},"range":false},"signatureHelpProvider":{"triggerCharacters":["(",")","{","}","<",">",","]},"textDocumentSync":{"change":2,"openClose":true,"save":true},"typeDefinitionProvider":true,"typeHierarchyProvider":true,"workspaceSymbolProvider":true},"serverInfo":{"name":"clangd","version":"clangd version 14.0.0 windows x86_64-pc-windows-msvc"}}}
+>>>
+Content-Length: 52
+
+{"jsonrpc":"2.0","method":"initialized","params":{}}Content-Length: 7938
+
+{"jsonrpc":"2.0","method":"textDocument/didOpen","params":{"textDocument":{"uri":"file:///C:/Users/sukji/AppData/Local/Temp/arduino-language-server1945140500/sketch/start.ino.cpp","languageId":"cpp","version":1,"text":"#include \u003cArduino.h\u003e\n#line 1 \"C:\\\\Users\\\\sukji\\\\arduino_master\\\\start\\\\start.ino\"\n// C++ code\n//\n\n//the right motor will be controlled by the motor A pins on the motor driver\nconst int AIN1 = 12;           //control pin 1 on the motor driver for the right motor\nconst int AIN2 = 13;            //control pin 2 on the motor driver for the right motor\nconst int PWMA = 11;            //speed control pin on the motor driver for the right motor\n\n//the left motor will be controlled by the motor B pins on the motor driver\nconst int PWMB = 3;           //speed control pin on the motor driver for the left motor\nconst int BIN2 = 2;           //control pin 2 on the motor driver for the left motor\nconst int BIN1 = 4;           //control pin 1 on the motor driver for the left motor\n\n//Ultrasonic sensor.\nconst int trigPinFront = 6; // Trigger Pin of Front Ultrasonic Sensor\nconst int echoPinFront = 5; // Echo Pin of Front Ultrasonic Sensor\nconst int trigPinBack= 10; // Trigger Pin Back Ultrasonic Sensor;\nconst int echoPinBack = 9; // Echo pin Back Ultrasonic Sensor;\n\n//Tilt sensor\nconst int xtiltPin = 7;\nconst int ytiltPin = 8;\n\nfloat distance = 0;\n\n#line 26 \"C:\\\\Users\\\\sukji\\\\arduino_master\\\\start\\\\start.ino\"\nvoid setup();\n#line 55 \"C:\\\\Users\\\\sukji\\\\arduino_master\\\\start\\\\start.ino\"\nvoid loop();\n#line 90 \"C:\\\\Users\\\\sukji\\\\arduino_master\\\\start\\\\start.ino\"\nvoid check_tilt();\n#line 99 \"C:\\\\Users\\\\sukji\\\\arduino_master\\\\start\\\\start.ino\"\nfloat getDistance(int tp, int ep);\n#line 120 \"C:\\\\Users\\\\sukji\\\\arduino_master\\\\start\\\\start.ino\"\nvoid leftMotor(int motorSpeed);\n#line 141 \"C:\\\\Users\\\\sukji\\\\arduino_master\\\\start\\\\start.ino\"\nvoid rightMotor(int motorSpeed);\n#line 164 \"C:\\\\Users\\\\sukji\\\\arduino_master\\\\start\\\\start.ino\"\nvoid engine_speed(double x, double y, double* lp, double* rp);\n#line 26 \"C:\\\\Users\\\\sukji\\\\arduino_master\\\\start\\\\start.ino\"\nvoid setup()\n{\n  //set the motor control pins as outputs\n  pinMode(AIN1, OUTPUT);\n  pinMode(AIN2, OUTPUT);\n  pinMode(PWMA, OUTPUT);\n\n  pinMode(BIN1, OUTPUT);\n  pinMode(BIN2, OUTPUT);\n  pinMode(PWMB, OUTPUT);\n\n  //set the ultrasonic sensor\n  pinMode(trigPinFront, OUTPUT); // initialising pin 6 as output\n  pinMode(echoPinFront, INPUT); // initialising pin 5 as input\n  pinMode(trigPinBack, OUTPUT); // pin 10 as output\n  pinMode(echoPinFront, INPUT); // pin 9 as input\n\n  //set the tilt sensor\n  pinMode(xtiltPin, INPUT); // initializing pin 7 as xtilt\n  digitalWrite(xtiltPin, HIGH);\n  pinMode(ytiltPin, INPUT); // initializing pin 8 as ytilt\n  digitalWrite(ytiltPin, HIGH);\n  \n  //start serial\n  Serial.begin(9600);\n  Serial.print(\"to infinity and beyond!\");\n  \n}\n\nvoid loop()\n{\n  /* This is ultrasensor front and back.*/\n  distance = getDistance(trigPinFront, echoPinFront);\n  Serial.print(\"Front Distance: \");\n  Serial.print(distance);\n  Serial.println(\" cm\"); \n  delay(50);   //delay 50\n  distance = getDistance(trigPinBack, echoPinBack);\n  Serial.print(\"Back Distance: \");\n  Serial.print(distance);\n  Serial.println(\" cm\"); \n\n  /* Joystick input to engine speed converter */\n  double left;\n  double right;\n  // put your main code here, to run repeatedly:\n  int x = analogRead(A0);\n  x -= 512;\n  int y = analogRead(A1);\n  y -= 512;\n  engine_speed((double) x, (double) y, \u0026left, \u0026right);\n  /*\n  Serial.print(\"left engine:  \");\n  Serial.print(left);\n  Serial.print(\"    right engine:  \");\n  Serial.println(right);\n  */\n  leftMotor(left);\n  rightMotor(right);\n  check_tilt();\n\n}\n\n/**************************/\nvoid check_tilt() { \n  if (digitalRead(xtiltPin) || digitalRead(ytiltPin)) {\n    Serial.println(\"This needs to get to a sensor\");\n  } else {\n    Serial.print(\".\");\n  }\n  return;\n}\n\nfloat getDistance(int tp, int ep)\n{\n  float echoTime;                   //variable to store the time it takes for a ping to bounce off an object\n  float calculatedDistance;         //variable to store the distance calculated from the echo time\n\n  //send out an ultrasonic pulse that's 10ms long\n  digitalWrite(tp, LOW);\n  delayMicroseconds(2);\n  digitalWrite(tp, HIGH);\n  delayMicroseconds(10);\n  digitalWrite(tp, LOW);\n\n  echoTime = pulseIn(ep, HIGH);      //use the pulsein command to see how long it takes for the\n                                          //pulse to bounce back to the sensor\n  calculatedDistance = echoTime / 148.0;  //calculate the distance of the object that reflected the pulse (half the bounce time multiplied by the speed of sound)\n  calculatedDistance *= 2.54; //convert to cm.\n\n  return calculatedDistance;              //send back the distance that was calculated\n}\n\n/********************************************************************************/\nvoid leftMotor(int motorSpeed)                        //function for driving the left motor\n{\n  if (motorSpeed \u003e 0)                                 //if the motor should drive forward (positive speed)\n  {\n    digitalWrite(BIN1, HIGH);                         //set pin 1 to high\n    digitalWrite(BIN2, LOW);                          //set pin 2 to low\n  }\n  else if (motorSpeed \u003c 0)                            //if the motor should drive backward (negative speed)\n  {\n    digitalWrite(BIN1, LOW);                          //set pin 1 to low\n    digitalWrite(BIN2, HIGH);                         //set pin 2 to high\n  }\n  else                                                //if the motor should stop\n  {\n    digitalWrite(BIN1, LOW);                          //set pin 1 to low\n    digitalWrite(BIN2, LOW);                          //set pin 2 to low\n  }\n  analogWrite(PWMB, abs(motorSpeed));                 //now that the motor direction is set, drive it at the entered speed\n}\n\n/********************************************************************************/\nvoid rightMotor(int motorSpeed)                       //function for driving the right motor\n{\n  if (motorSpeed \u003e 0)                                 //if the motor should drive forward (positive speed)\n  {\n    digitalWrite(AIN1, HIGH);                         //set pin 1 to high\n    digitalWrite(AIN2, LOW);                          //set pin 2 to low\n  }\n  else if (motorSpeed \u003c 0)                            //if the motor should drive backward (negative speed)\n  {\n    digitalWrite(AIN1, LOW);                          //set pin 1 to low\n    digitalWrite(AIN2, HIGH);                         //set pin 2 to high\n  }\n  else                                                //if the motor should stop\n  {\n    digitalWrite(AIN1, LOW);                          //set pin 1 to low\n    digitalWrite(AIN2, LOW);                          //set pin 2 to low\n  }\n  analogWrite(PWMA, abs(motorSpeed));                 //now that the motor direction is set, drive it at the entered speed\n}\n\n\n/******END***************************END*****************************************/\n\nvoid engine_speed(double x, double y, double* lp, double* rp) {\n  double left;\n  double right;\n  double r;\n  double t;\n  r = hypot(x, y);\n  t = atan2(y, x);\n  //Serial.println(r);\n  //Serial.println(t);\n  \n  t -= M_PI / 4;\n  left = r * cos(t);\n  right = r * sin(t);\n  left *= sqrt(2);\n  left /= 2;\n  right *= sqrt(2);\n  right /= 2;\n  //Serial.println(left);\n  //Serial.println(right);\n  //Division two for converting distance to engine speed,\n  //255 / 512\n  left = max(-255, min(left, 255)); \n  right = max(-255, min(right, 255));\n  *lp = left;\n  *rp = right;\n    \n  return;\n}\n\n\n"}}}Content-Length: 299
+
+{"jsonrpc":"2.0","id":"2","method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/sukji/AppData/Local/Temp/arduino-language-server1945140500/sketch/start.ino.cpp"},"range":{"start":{"line":72,"character":1},"end":{"line":72,"character":1}},"context":{"diagnostics":[]}}}
+<<<
+Content-Length: 180
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"diagnostics":[],"uri":"file:///C:/Users/sukji/AppData/Local/Temp/arduino-language-server1945140500/.clangd"}}Content-Length: 111
+
+{"id":0,"jsonrpc":"2.0","method":"window/workDoneProgress/create","params":{"token":"backgroundIndexProgress"}}
+>>>
+Content-Length: 38
+
+{"jsonrpc":"2.0","id":0,"result":null}
+<<<
+Content-Length: 143
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"begin","percentage":0,"title":"indexing"}}}Content-Length: 141
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/1","percentage":0}}}Content-Length: 142
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/27","percentage":0}}}Content-Length: 142
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/27","percentage":0}}}Content-Length: 142
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/27","percentage":0}}}Content-Length: 142
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/27","percentage":0}}}Content-Length: 142
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/27","percentage":0}}}Content-Length: 142
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/27","percentage":0}}}Content-Length: 142
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/27","percentage":0}}}Content-Length: 142
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/27","percentage":0}}}Content-Length: 142
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"1/27","percentage":3}}}Content-Length: 142
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"1/27","percentage":3}}}Content-Length: 142
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"2/27","percentage":7}}}Content-Length: 142
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"2/27","percentage":7}}}Content-Length: 143
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"3/27","percentage":11}}}Content-Length: 143
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"3/27","percentage":11}}}Content-Length: 205
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"diagnostics":[],"uri":"file:///C:/Users/sukji/AppData/Local/Temp/arduino-language-server1945140500/sketch/start.ino.cpp","version":1}}Content-Length: 38
+
+{"id":"2","jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 198
+
+{"jsonrpc":"2.0","id":"3","method":"textDocument/documentSymbol","params":{"textDocument":{"uri":"file:///C:/Users/sukji/AppData/Local/Temp/arduino-language-server1945140500/sketch/start.ino.cpp"}}}
+<<<
+Content-Length: 5893
+
+{"id":"3","jsonrpc":"2.0","result":[{"detail":"const int","kind":13,"name":"AIN1","range":{"end":{"character":19,"line":6},"start":{"character":0,"line":6}},"selectionRange":{"end":{"character":14,"line":6},"start":{"character":10,"line":6}}},{"detail":"const int","kind":13,"name":"AIN2","range":{"end":{"character":19,"line":7},"start":{"character":0,"line":7}},"selectionRange":{"end":{"character":14,"line":7},"start":{"character":10,"line":7}}},{"detail":"const int","kind":13,"name":"PWMA","range":{"end":{"character":19,"line":8},"start":{"character":0,"line":8}},"selectionRange":{"end":{"character":14,"line":8},"start":{"character":10,"line":8}}},{"detail":"const int","kind":13,"name":"PWMB","range":{"end":{"character":18,"line":11},"start":{"character":0,"line":11}},"selectionRange":{"end":{"character":14,"line":11},"start":{"character":10,"line":11}}},{"detail":"const int","kind":13,"name":"BIN2","range":{"end":{"character":18,"line":12},"start":{"character":0,"line":12}},"selectionRange":{"end":{"character":14,"line":12},"start":{"character":10,"line":12}}},{"detail":"const int","kind":13,"name":"BIN1","range":{"end":{"character":18,"line":13},"start":{"character":0,"line":13}},"selectionRange":{"end":{"character":14,"line":13},"start":{"character":10,"line":13}}},{"detail":"const int","kind":13,"name":"trigPinFront","range":{"end":{"character":26,"line":16},"start":{"character":0,"line":16}},"selectionRange":{"end":{"character":22,"line":16},"start":{"character":10,"line":16}}},{"detail":"const int","kind":13,"name":"echoPinFront","range":{"end":{"character":26,"line":17},"start":{"character":0,"line":17}},"selectionRange":{"end":{"character":22,"line":17},"start":{"character":10,"line":17}}},{"detail":"const int","kind":13,"name":"trigPinBack","range":{"end":{"character":25,"line":18},"start":{"character":0,"line":18}},"selectionRange":{"end":{"character":21,"line":18},"start":{"character":10,"line":18}}},{"detail":"const int","kind":13,"name":"echoPinBack","range":{"end":{"character":25,"line":19},"start":{"character":0,"line":19}},"selectionRange":{"end":{"character":21,"line":19},"start":{"character":10,"line":19}}},{"detail":"const int","kind":13,"name":"xtiltPin","range":{"end":{"character":22,"line":22},"start":{"character":0,"line":22}},"selectionRange":{"end":{"character":18,"line":22},"start":{"character":10,"line":22}}},{"detail":"const int","kind":13,"name":"ytiltPin","range":{"end":{"character":22,"line":23},"start":{"character":0,"line":23}},"selectionRange":{"end":{"character":18,"line":23},"start":{"character":10,"line":23}}},{"detail":"float","kind":13,"name":"distance","range":{"end":{"character":18,"line":25},"start":{"character":0,"line":25}},"selectionRange":{"end":{"character":14,"line":25},"start":{"character":6,"line":25}}},{"detail":"void ()","kind":12,"name":"setup","range":{"end":{"character":12,"line":28},"start":{"character":0,"line":28}},"selectionRange":{"end":{"character":10,"line":28},"start":{"character":5,"line":28}}},{"detail":"void ()","kind":12,"name":"loop","range":{"end":{"character":11,"line":30},"start":{"character":0,"line":30}},"selectionRange":{"end":{"character":9,"line":30},"start":{"character":5,"line":30}}},{"detail":"void ()","kind":12,"name":"check_tilt","range":{"end":{"character":17,"line":32},"start":{"character":0,"line":32}},"selectionRange":{"end":{"character":15,"line":32},"start":{"character":5,"line":32}}},{"detail":"float (int, int)","kind":12,"name":"getDistance","range":{"end":{"character":33,"line":34},"start":{"character":0,"line":34}},"selectionRange":{"end":{"character":17,"line":34},"start":{"character":6,"line":34}}},{"detail":"void (int)","kind":12,"name":"leftMotor","range":{"end":{"character":30,"line":36},"start":{"character":0,"line":36}},"selectionRange":{"end":{"character":14,"line":36},"start":{"character":5,"line":36}}},{"detail":"void (int)","kind":12,"name":"rightMotor","range":{"end":{"character":31,"line":38},"start":{"character":0,"line":38}},"selectionRange":{"end":{"character":15,"line":38},"start":{"character":5,"line":38}}},{"detail":"void (double, double, double *, double *)","kind":12,"name":"engine_speed","range":{"end":{"character":61,"line":40},"start":{"character":0,"line":40}},"selectionRange":{"end":{"character":17,"line":40},"start":{"character":5,"line":40}}},{"detail":"void ()","kind":12,"name":"setup","range":{"end":{"character":1,"line":69},"start":{"character":0,"line":42}},"selectionRange":{"end":{"character":10,"line":42},"start":{"character":5,"line":42}}},{"detail":"void ()","kind":12,"name":"loop","range":{"end":{"character":1,"line":103},"start":{"character":0,"line":71}},"selectionRange":{"end":{"character":9,"line":71},"start":{"character":5,"line":71}}},{"detail":"void ()","kind":12,"name":"check_tilt","range":{"end":{"character":1,"line":113},"start":{"character":0,"line":106}},"selectionRange":{"end":{"character":15,"line":106},"start":{"character":5,"line":106}}},{"detail":"float (int, int)","kind":12,"name":"getDistance","range":{"end":{"character":1,"line":133},"start":{"character":0,"line":115}},"selectionRange":{"end":{"character":17,"line":115},"start":{"character":6,"line":115}}},{"detail":"void (int)","kind":12,"name":"leftMotor","range":{"end":{"character":1,"line":154},"start":{"character":0,"line":136}},"selectionRange":{"end":{"character":14,"line":136},"start":{"character":5,"line":136}}},{"detail":"void (int)","kind":12,"name":"rightMotor","range":{"end":{"character":1,"line":175},"start":{"character":0,"line":157}},"selectionRange":{"end":{"character":15,"line":157},"start":{"character":5,"line":157}}},{"detail":"void (double, double, double *, double *)","kind":12,"name":"engine_speed","range":{"end":{"character":1,"line":207},"start":{"character":0,"line":180}},"selectionRange":{"end":{"character":17,"line":180},"start":{"character":5,"line":180}}}]}Content-Length: 143
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"4/27","percentage":14}}}Content-Length: 143
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"4/27","percentage":14}}}Content-Length: 143
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"5/27","percentage":18}}}Content-Length: 143
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"5/27","percentage":18}}}Content-Length: 143
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"6/27","percentage":22}}}Content-Length: 143
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"6/27","percentage":22}}}Content-Length: 143
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"7/27","percentage":25}}}Content-Length: 143
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"7/27","percentage":25}}}Content-Length: 143
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"8/27","percentage":29}}}Content-Length: 143
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"8/27","percentage":29}}}Content-Length: 143
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"9/27","percentage":33}}}Content-Length: 143
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"9/27","percentage":33}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"10/27","percentage":37}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"10/27","percentage":37}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"11/27","percentage":40}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"11/27","percentage":40}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"12/27","percentage":44}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"12/27","percentage":44}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"13/27","percentage":48}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"13/27","percentage":48}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"14/27","percentage":51}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"14/27","percentage":51}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"15/27","percentage":55}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"15/27","percentage":55}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"16/27","percentage":59}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"16/27","percentage":59}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"17/27","percentage":62}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"17/27","percentage":62}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"18/27","percentage":66}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"18/27","percentage":66}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"19/27","percentage":70}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"19/27","percentage":70}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"20/27","percentage":74}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"21/27","percentage":77}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"22/27","percentage":81}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"23/27","percentage":85}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"24/27","percentage":88}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"25/27","percentage":92}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"26/27","percentage":96}}}Content-Length: 107
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"end"}}}
+>>>
+Content-Length: 226
+
+{"jsonrpc":"2.0","id":"4","method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/sukji/AppData/Local/Temp/arduino-language-server1945140500/sketch/start.ino.cpp"},"position":{"line":57,"character":2}}}
+<<<
+Content-Length: 311
+
+{"id":"4","jsonrpc":"2.0","result":{"contents":{"kind":"markdown","value":"### function `pinMode`  \n\n---\n→ `void`  \nParameters:  \n- `uint8_t pin`\n- `uint8_t mode`\n\n---\n```cpp\nvoid pinMode(uint8_t pin, uint8_t mode)\n```"},"range":{"end":{"character":9,"line":57},"start":{"character":2,"line":57}}}}
+>>>
+Content-Length: 60
+
+{"jsonrpc":"2.0","id":"5","method":"shutdown","params":null}
+<<<
+Content-Length: 40
+
+{"id":"5","jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 47
+
+{"jsonrpc":"2.0","method":"exit","params":null}
