@@ -10500,4 +10500,22 @@ Content-Length: 41
 >>>
 Content-Length: 140
 
-{"jsonrpc":"2.0","method":"$/progress","params":{"token":"arduinoLanguageServerRebuild","value":{"kind":"begin","title":"Building sketch"}}}
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"arduinoLanguageServerRebuild","value":{"kind":"begin","title":"Building sketch"}}}Content-Length: 129
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"arduinoLanguageServerRebuild","value":{"kind":"end","message":"done"}}}Content-Length: 114
+
+{"jsonrpc":"2.0","id":"33","method":"window/workDoneProgress/create","params":{"token":"backgroundIndexProgress"}}
+<<<
+Content-Length: 41
+
+{"jsonrpc":"2.0","id":"33","result":null}
+>>>
+Content-Length: 143
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"begin","title":"indexing","percentage":0}}}Content-Length: 141
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/1","percentage":0}}}Content-Length: 141
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/1","percentage":0}}}Content-Length: 107
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"end"}}}
