@@ -18,10 +18,13 @@ const int trigPinBack= 10; // Trigger Pin Back Ultrasonic Sensor;
 const int echoPinBack = 9; // Echo pin Back Ultrasonic Sensor;
 
 //Tilt sensor
-const int xtiltPin = 7;
-const int ytiltPin = 8;
-
+const int tiltPin = 7;
 float distance = 0;
+
+//joystick pins
+const int xaxis = A0;
+const int yaxis = A1;
+
 
 void setup()
 {
@@ -41,10 +44,7 @@ void setup()
   pinMode(echoPinFront, INPUT); // pin 9 as input
 
   //set the tilt sensor
-  pinMode(xtiltPin, INPUT); // initializing pin 7 as xtilt
-  digitalWrite(xtiltPin, HIGH);
-  pinMode(ytiltPin, INPUT); // initializing pin 8 as ytilt
-  digitalWrite(ytiltPin, HIGH);
+  pinMode(tiltPin, INPUT); // initializing pin 7 as tilt
   
   //start serial
   Serial.begin(9600);
@@ -56,22 +56,22 @@ void loop()
 {
   /* This is ultrasensor front and back.*/
   distance = getDistance(trigPinFront, echoPinFront);
-  Serial.print("Front Distance: ");
-  Serial.print(distance);
-  Serial.println(" cm"); 
-  delay(50);   //delay 50
+  //Serial.print("Front Distance: ");
+  //Serial.print(distance);
+  //Serial.println(" cm"); 
+  //delay(50);   //delay 50
   distance = getDistance(trigPinBack, echoPinBack);
-  Serial.print("Back Distance: ");
-  Serial.print(distance);
-  Serial.println(" cm"); 
+  //Serial.print("Back Distance: ");
+  //Serial.print(distance);
+  //Serial.println(" cm"); 
 
   /* Joystick input to engine speed converter */
   double left;
   double right;
   // put your main code here, to run repeatedly:
-  int x = analogRead(A0);
+  int x = analogRead(xaxis);
   x -= 512;
-  int y = analogRead(A1);
+  int y = analogRead(yaxis);
   y -= 512;
   engine_speed((double) x, (double) y, &left, &right);
   /*
@@ -83,13 +83,16 @@ void loop()
   leftMotor(left);
   rightMotor(right);
   check_tilt();
+  
 
 }
 
 /**************************/
 void check_tilt() { 
-  if (digitalRead(xtiltPin) || digitalRead(ytiltPin)) {
-    Serial.println("This needs to get to a sensor");
+  //Serial.println(digitalRead(tiltPin));
+  if (digitalRead(tiltPin)) {
+    Serial.println("This needs to get to a server");
+    digitalWrite(tiltPin, LOW);
   } else {
     Serial.print(".");
   }
