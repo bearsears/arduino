@@ -1,6 +1,7 @@
 //part of the code was from programmingboss.com
 //setting it up for esp32 main program.
 #include "WiFi.h"
+#include "ThingSpeak.h"
 //#define RXp2 16
 //#define TXp2 17
 
@@ -13,8 +14,13 @@ String a = "";
 
 //wifi id and password, put your own credentials, and always never save
 //this part.
-const char* ssid = "";
-const char* password = "";
+const char* ssid = "Steven의 iPhone"; //write ap name
+const char* password = "12345678$"; //write ap password
+unsigned long myChannelNumber = 1;
+const char * myWriteAPIKey = "AHAH4Q0L2O3DQ3KQ";   // Write API KEY
+WiFiClient client;
+
+long int grandPa = 0;
 
 
 //if you call function in setup() you need to declare it before.
@@ -39,7 +45,7 @@ void setup() {
   // put your setup code here, to run once:
   //setting up wifi
   Serial.begin(921600);
-  delay(1000);
+  delay(500);
   WiFi.begin(ssid, password);
   Serial.println("\nConnecting");
 
@@ -53,13 +59,30 @@ void setup() {
   //setting up connection to arduino
   Serial.println("Connecting to Arduino");
   Serial2.begin(9600, SERIAL_8N1, RXp2, TXp2);
+  ThingSpeak.begin(client);
 }
 
 void loop() {
+  //did he already fall?
+  
   Serial.println("Waiting for a signal");
   while (a == "") {
     a = Serial2.readString();
-    delay(100);
-  Serial.println(a);
+    Serial.print(a);
+    delay(1000);
   }
+  int x = 0;
+  int l = a.length();
+  x = ThingSpeak.writeField(myChannelNumber, 1, l, myWriteAPIKey);
+  if (x == 200) {
+    Serial.println("Channel update successful");
+    delay(10000);
+  }
+
+  a = "";
+  /* else {
+    Serial.println("Didn't get to the server, try again");
+  }
+  delay(10000);
+  */
 }
