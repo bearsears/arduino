@@ -7,19 +7,22 @@ const int AIN2 = 13;            //control pin 2 on the motor driver for the righ
 const int PWMA = 11;            //speed control pin on the motor driver for the right motor
 
 //the left motor will be controlled by the motor B pins on the motor driver
-const int PWMB = 3;           //speed control pin on the motor driver for the left motor
-const int BIN2 = 2;           //control pin 2 on the motor driver for the left motor
-const int BIN1 = 4;           //control pin 1 on the motor driver for the left motor
+const int BIN1 = 8;           //control pin 1 on the motor driver for the left motor
+const int BIN2 = 9;           //control pin 2 on the motor driver for the left motor
+const int PWMB = 10;           //speed control pin on the motor driver for the left motor
 
 //Ultrasonic sensor.
 const int trigPinFront = 6; // Trigger Pin of Front Ultrasonic Sensor
 const int echoPinFront = 5; // Echo Pin of Front Ultrasonic Sensor
-const int trigPinBack= 10; // Trigger Pin Back Ultrasonic Sensor;
-const int echoPinBack = 9; // Echo pin Back Ultrasonic Sensor;
+const int trigPinBack= 3; // Trigger Pin Back Ultrasonic Sensor;
+const int echoPinBack = 2; // Echo pin Back Ultrasonic Sensor;
+const int warningLight = 4; // Warning light for ultrasonic sensor;
+float distanceFront = 0;
+float distanceBack = 0;
+float distanceWarning = 20;
 
 //Tilt sensor
 const int tiltPin = 7;
-float distance = 0;
 
 //joystick pins
 const int xaxis = A0;
@@ -42,33 +45,24 @@ void setup()
   pinMode(echoPinFront, INPUT); // initialising pin 5 as input
   pinMode(trigPinBack, OUTPUT); // pin 10 as output
   pinMode(echoPinFront, INPUT); // pin 9 as input
+  pinMode(warningLight, INPUT); // pin 8 for input, warning light
 
   //set the tilt sensor
   pinMode(tiltPin, INPUT); // initializing pin 7 as tilt
   
   //start serial
   Serial.begin(9600);
-  Serial.print("to infinity and beyond!");
-  
+  //Serial.print("to infinity and beyond!");
 }
 
 void loop()
 {
-  /* This is ultrasensor front and back.*/
-  distance = getDistance(trigPinFront, echoPinFront);
-  //Serial.print("Front Distance: ");
-  //Serial.print(distance);
-  //Serial.println(" cm"); 
-  //delay(50);   //delay 50
-  distance = getDistance(trigPinBack, echoPinBack);
-  //Serial.print("Back Distance: ");
-  //Serial.print(distance);
-  //Serial.println(" cm"); 
+  //check distance using ultrasonic
+  check_distance();
 
   /* Joystick input to engine speed converter */
   double left;
   double right;
-  // put your main code here, to run repeatedly:
   int x = analogRead(xaxis);
   x -= 512;
   int y = analogRead(yaxis);
@@ -86,16 +80,39 @@ void loop()
   
 
 }
+void check_distance() {
+  /* This is ultrasensor front and back.*/
+  distanceFront = getDistance(trigPinFront, echoPinFront);
+  //Serial.print("Front Distance: ");
+  //Serial.print(distance);
+  //Serial.println(" cm"); 
+  //delay(50);   //delay 50
+  distanceBack = getDistance(trigPinBack, echoPinBack);
+  //Serial.print("Back Distance: ");
+  //Serial.print(distance);
+  //Serial.println(" cm"); 
+
+  /*if the distance low, the warning light should be on.*/
+  if (distanceFront < distanceWarning || distanceBack <  distanceWarning) {
+    digitalWrite(warningLight, HIGH);
+  } else {
+    digitalWrite(warningLight, LOW);
+  }
+}
 
 /**************************/
 void check_tilt() { 
   //Serial.println(digitalRead(tiltPin));
   if (digitalRead(tiltPin)) {
     Serial.println("This needs to get to a server");
-    digitalWrite(tiltPin, LOW);
-  } else {
+    delay(10000);
+  }
+  //digitalWrite(tiltPin, LOW);
+  /* 
+  else {
     Serial.print(".");
   }
+  */
   return;
 }
 
@@ -120,45 +137,51 @@ float getDistance(int tp, int ep)
 }
 
 /********************************************************************************/
-void leftMotor(int motorSpeed)                        //function for driving the left motor
+/* 
+
+This is for left motor control, takes in integer,
+and tells to the motor how much to move.
+
+*/
+void leftMotor(int motorSpeed)          //function for driving the left motor
 {
-  if (motorSpeed > 0)                                 //if the motor should drive forward (positive speed)
+  if (motorSpeed > 0)             //if the motor should drive forward (positive speed)
   {
-    digitalWrite(BIN1, HIGH);                         //set pin 1 to high
-    digitalWrite(BIN2, LOW);                          //set pin 2 to low
+    digitalWrite(BIN1, HIGH);     //set pin 1 to high
+    digitalWrite(BIN2, LOW);      //set pin 2 to low
   }
-  else if (motorSpeed < 0)                            //if the motor should drive backward (negative speed)
+  else if (motorSpeed < 0)        //if the motor should drive backward (negative speed)
   {
-    digitalWrite(BIN1, LOW);                          //set pin 1 to low
-    digitalWrite(BIN2, HIGH);                         //set pin 2 to high
+    digitalWrite(BIN1, LOW);      //set pin 1 to low
+    digitalWrite(BIN2, HIGH);     //set pin 2 to high
   }
-  else                                                //if the motor should stop
+  else                            //if the motor should stop
   {
-    digitalWrite(BIN1, LOW);                          //set pin 1 to low
-    digitalWrite(BIN2, LOW);                          //set pin 2 to low
+    digitalWrite(BIN1, LOW);      //set pin 1 to low
+    digitalWrite(BIN2, LOW);      //set pin 2 to low
   }
-  analogWrite(PWMB, abs(motorSpeed));                 //now that the motor direction is set, drive it at the entered speed
+  analogWrite(PWMB, abs(motorSpeed));  //now that the motor direction is set, drive it at the entered speed
 }
 
 /********************************************************************************/
-void rightMotor(int motorSpeed)                       //function for driving the right motor
+void rightMotor(int motorSpeed)   //function for driving the right motor
 {
-  if (motorSpeed > 0)                                 //if the motor should drive forward (positive speed)
+  if (motorSpeed > 0)             //if the motor should drive forward (positive speed)
   {
-    digitalWrite(AIN1, HIGH);                         //set pin 1 to high
-    digitalWrite(AIN2, LOW);                          //set pin 2 to low
+    digitalWrite(AIN1, HIGH);     //set pin 1 to high
+    digitalWrite(AIN2, LOW);      //set pin 2 to low
   }
-  else if (motorSpeed < 0)                            //if the motor should drive backward (negative speed)
+  else if (motorSpeed < 0)        //if the motor should drive backward (negative speed)
   {
-    digitalWrite(AIN1, LOW);                          //set pin 1 to low
-    digitalWrite(AIN2, HIGH);                         //set pin 2 to high
+    digitalWrite(AIN1, LOW);      //set pin 1 to low
+    digitalWrite(AIN2, HIGH);     //set pin 2 to high
   }
-  else                                                //if the motor should stop
+  else                            //if the motor should stop
   {
-    digitalWrite(AIN1, LOW);                          //set pin 1 to low
-    digitalWrite(AIN2, LOW);                          //set pin 2 to low
+    digitalWrite(AIN1, LOW);      //set pin 1 to low
+    digitalWrite(AIN2, LOW);      //set pin 2 to low
   }
-  analogWrite(PWMA, abs(motorSpeed));                 //now that the motor direction is set, drive it at the entered speed
+  analogWrite(PWMA, abs(motorSpeed));   //now that the motor direction is set, drive it at the entered speed
 }
 
 
