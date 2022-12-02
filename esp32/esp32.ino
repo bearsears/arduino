@@ -14,10 +14,10 @@ String a = "";
 
 //wifi id and password, put your own credentials, and always never save
 //this part.
-const char* ssid = ""; //write ap name
-const char* password = ""; //write ap password
+const char* ssid = "fakeap"; //write ap name
+const char* password = "fakepass"; //write ap password
 unsigned long myChannelNumber = 1;
-const char * myWriteAPIKey = "";   // Write API KEY
+const char * myWriteAPIKey = "fakeapi";   // Write API KEY
 WiFiClient client;
 
 long int grandPa = 0;
